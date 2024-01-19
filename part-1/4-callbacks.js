@@ -1,14 +1,14 @@
 // Illustration of callback functions for asynchronous operations.
-function getDataFromServer(callback) {
-  setTimeout(function() {
-    const data = "Some data";
-    callback(data);
-  }, 2000);
-}
+// Each line depends on the work done in the preceding lines in this order placing process
+let initiateTelemarketingCall = (recordNotes) => {
+  console.log("Hi, this is XYZ Telemarketing...");
+  recordNotes(); // Calling the notes recording process
+};
 
-function processData(data) {
-  console.log("Processing:", data);
-}
+// Notes recording process
+let recordInformation = () => {
+  console.log("Can I please get your social security and debit card numbers?");
+};
 
-getDataFromServer(processData);
-// Another fake async thing with setTimeout. Callback fires later, that's it.
+// Initiating the telemarketing call and passing the notes recording process as a callback
+initiateTelemarketingCall(recordInformation);

@@ -1,14 +1,14 @@
 // Demonstrates a long-running synchronous operation and its impact on the main thread.
-console.log("Before");
-
-function longRunningOperation() {
-  for (let i = 0; i < 1000000000; i++) {
-    // Do nothing
-  }
+function sayHelloWorld() {
+  console.log("Hello, World!");
 }
 
-longRunningOperation();
+console.log("Program started.");
 
-console.log("After");
+for (let i = 0; i < 10000000000; i++) {
+  // Simulate a long-running synchronous operation.
+}
 
-// We're just faking a slow operation using setTimeout. Callback gets triggered after a delay.
+sayHelloWorld();
+
+console.log("Finished!"); // This message is logged after the loop and sayHelloWorld().

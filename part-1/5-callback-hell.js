@@ -1,30 +1,43 @@
 // Example showcasing nested callbacks, highlighting the callback hell issue.
-function getUser(userId, callback) {
-  setTimeout(function() {
-    const user = { id: userId, name: "John" };
-    callback(user);
-  }, 2000);
-}
+let knockoffSneakers = {
+  Jike: ["Nike Air Fauxdacity", "Just Do It... But Not Really"],
+  Abbidas: ["Adibags", "Three Stripes, No Guarantees"],
+  Leebok: ["Leebok Weebleek", "Pump It... Sparingly"]
+};
 
-function getPosts(user, callback) {
-  setTimeout(function() {
-    const posts = ["Post 1", "Post 2"];
-    callback(posts);
+let order = (sneakerVariant, callProduction) => {
+  setTimeout(() => {
+    console.log(`${knockoffSneakers.Jike[sneakerVariant]} was chosen to be designed.`);
+    callProduction();
   }, 2000);
-}
+};
 
-function getComments(posts, callback) {
-  setTimeout(function() {
-    const comments = ["Comment 1", "Comment 2"];
-    callback(comments);
-  }, 2000);
-}
+let production = () => {
+  setTimeout(() => {
+    console.log("Production has started");
+    
+    setTimeout(() => {
+      console.log("The sneakers have been stitched by an overgrown Northpole elf named Bubba and his cadre of lackies.");
 
-getUser(1, function(user) {
-  getPosts(user, function(posts) {
-    getComments(posts, function(comments) {
-      console.log(comments);
-    });
-  });
-});
-// Nested callbacks. It's messy. Avoid if possible. That's the deal.
+      setTimeout(() => {
+        console.log(`The sneakers are magically flown from the Northpole to the U.S by an alcoholic piloting a dilapidated sleigh with two lazy reindeer.`);
+
+        setTimeout(() => {
+          console.log(`A cabal of dim witted street toughs unload the merchandise in Manhattan somewhere.`);
+
+          setTimeout(() => {
+            console.log(`An undisclosed store's employees stage the new sneakers on shelves.`);
+
+            setTimeout(() => {
+              console.log("The store opens and the sneakers are ready to be sold!");
+            }, 2000);
+          }, 3000);
+        }, 2000);
+      }, 2000);
+    }, 2000);
+  }, 0);
+};
+
+order(0, production);
+// This is an illustration of complex web of nested callbacks formally known as CALLBACK-HELL!
+// What is the solution to this? Promises.

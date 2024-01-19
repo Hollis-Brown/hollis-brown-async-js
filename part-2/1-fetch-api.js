@@ -1,12 +1,12 @@
-// Introduction to the Fetch API and the basics of promises.
-fetch("https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
-    console.log(data);
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
-// Fetching data from a server. Promises making HTTP requests less painful.
+// Example of fetching data from an API (just a variant of the generic MDN example)
+const fetchPromise = fetch(
+  "https://jsonplaceholder.typicode.com/todos/1",
+);
+
+console.log(fetchPromise);
+
+fetchPromise.then((response) => {
+  console.log(`Received response: ${response.status}`);
+});
+
+console.log("Started request…");

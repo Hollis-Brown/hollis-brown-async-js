@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Async JavaScript Testing</title>
-</head>
-<body>
-  <!-- Your JavaScript code goes here -->
-  <script src="files-for-sections-1-to-5-go-here.js"></script>
-</body>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Title Case Converter</title>
+    <script src="title-case.js" defer></script>
+    <script src="title-case-worker.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h1>Title Case Converter</h1>
+    <p>Type a message in the input box and click the "Convert to Title Case" button.</p>
+    <label for="inputText">Input text:</label>
+    <input type="text" id="inputText" name="inputText" />
+
+    <button id="convert">Convert to Title Case</button>
+    <button id="reset">Reset</button>
+
+    <div id="output"></div>
+  </body>
 </html>

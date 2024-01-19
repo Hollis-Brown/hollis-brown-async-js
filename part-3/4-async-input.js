@@ -1,19 +1,26 @@
 // Integrates async/await for handling user input asynchronously.
-async function getUserInput() {
-  const input = await getInput();
-  console.log("Input:", input);
-}
+const name = document.querySelector("#activity");
+const delay = document.querySelector("#duration");
+const button = document.querySelector("#start-timer");
+const output = document.querySelector("#output");
 
-function getInput() {
-  return new Promise(function(resolve, reject) {
-    const input = prompt("Enter your input:");
-    if (input) {
-      resolve(input);
-    } else {
-      reject(new Error("No input provided"));
+function startTimer(activity, duration) {
+  return new Promise((resolve, reject) => {
+    if (duration < 0) {
+      reject(new Error("Timer duration must not be negative"));
     }
+    setTimeout(() => {
+      resolve(`Timer for ${activity} finished!`);
+    }, duration);
   });
 }
 
-getUserInput();
+button.addEventListener("click", async () => {
+  try {
+    const message = await timer(activity.value, duration.value);
+    output.textContent = message;
+  } catch (error){
+    output.textContent = `Couldn't start timer: ${error}`;
+  }
+});
 // Async input thing. Promise resolves with user input.
